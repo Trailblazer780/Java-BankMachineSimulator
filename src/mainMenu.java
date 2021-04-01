@@ -13,7 +13,11 @@ public class mainMenu extends JFrame {
 
 	private JPanel contentPane;
 	private Model model;
-
+	
+	// Button Variables
+	private JButton btnQuit;
+	
+	
 	public mainMenu(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 340);
@@ -50,7 +54,7 @@ public class mainMenu extends JFrame {
 		btnView.setBounds(47, 215, 89, 23);
 		contentPane.add(btnView);
 		
-		JButton btnQuit = new JButton("Quit");
+		btnQuit = new JButton("Quit");
 		btnQuit.setBounds(47, 249, 89, 23);
 		contentPane.add(btnQuit);
 		
@@ -63,6 +67,8 @@ public class mainMenu extends JFrame {
 	
 	// --------------------------------------------------------------- Public Methods
 	
-	
+	public void addQuitButtonListener(ActionListener quitButton) {
+		btnQuit.addActionListener(quitButton);
+	}
 	
 }
