@@ -10,7 +10,6 @@ public class Controller {
 		mainMenu = menuMain;
 		
 		mainMenu.addQuitButtonListener((ActionEvent e) -> {
-			System.out.println("clicked");
 			System.exit(0);
 		});
 		
