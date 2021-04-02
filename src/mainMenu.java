@@ -16,6 +16,8 @@ public class mainMenu extends JFrame {
 	
 	// Button Variables
 	private JButton btnQuit;
+	private JButton btnSelectAccount;
+	private JButton btnCreate;
 	
 	
 	public mainMenu(Model myModel) {
@@ -26,7 +28,7 @@ public class mainMenu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnSelectAccount = new JButton("Select");
+		btnSelectAccount = new JButton("Select");
 		btnSelectAccount.setBounds(47, 45, 89, 23);
 		contentPane.add(btnSelectAccount);
 		
@@ -38,7 +40,7 @@ public class mainMenu extends JFrame {
 		btnWithdraw.setBounds(47, 113, 89, 23);
 		contentPane.add(btnWithdraw);
 		
-		JButton btnCreate = new JButton("Create");
+		btnCreate = new JButton("Create");
 		btnCreate.setBounds(47, 147, 89, 23);
 		contentPane.add(btnCreate);
 		
@@ -70,5 +72,24 @@ public class mainMenu extends JFrame {
 	public void addQuitButtonListener(ActionListener quitButton) {
 		btnQuit.addActionListener(quitButton);
 	}
+	
+	public void addSelectButtonListener(ActionListener selectButton) {
+		btnSelectAccount.addActionListener(selectButton);
+	}
+	
+	public void addCreateButtonListener(ActionListener createButton) {
+		btnCreate.addActionListener(createButton);
+	}
+	
+	
+	
+	// --------------------------------------------------------------- Changing Views
+	
+	public void windowDisappear() {
+		this.setVisible(false);
+	}
+	
+	
+	
 	
 }

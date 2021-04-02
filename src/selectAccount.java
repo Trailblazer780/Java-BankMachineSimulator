@@ -15,27 +15,9 @@ import java.awt.Color;
 public class selectAccount extends JFrame {
 
 	private JPanel contentPane;
+	private Model model;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					selectAccount frame = new selectAccount();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public selectAccount() {
+	public selectAccount(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 340);
 		contentPane = new JPanel();
@@ -63,6 +45,13 @@ public class selectAccount extends JFrame {
 		JButton btnCancelAcc = new JButton("Cancel");
 		btnCancelAcc.setBounds(203, 223, 89, 23);
 		contentPane.add(btnCancelAcc);
+		
+		model = myModel;
+	}
+	
+	// ---------------------------------------------------- Public Methods
+	public void selectAccountVisible() {
+		this.setVisible(true);
 	}
 
 }

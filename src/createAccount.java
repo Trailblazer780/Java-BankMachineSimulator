@@ -18,27 +18,10 @@ public class createAccount extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtAccountDescription;
 	private JTextField textField;
+	private Model model;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					createAccount frame = new createAccount();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
-	public createAccount() {
+	public createAccount(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 340);
 		contentPane = new JPanel();
@@ -84,5 +67,12 @@ public class createAccount extends JFrame {
 		JButton btnCancelCreate = new JButton("Cancel");
 		btnCancelCreate.setBounds(182, 178, 89, 23);
 		contentPane.add(btnCancelCreate);
+		
+		model = myModel;
 	}
+	
+	public void createAccountVisible() {
+		this.setVisible(true);
+	}
+	
 }
