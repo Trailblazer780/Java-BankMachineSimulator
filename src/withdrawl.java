@@ -16,6 +16,10 @@ public class withdrawl extends JFrame {
 	private JTextField txtWithdrawAmount;
 	private JTextField txtTransactionDesc;
 	private Model model;
+	
+	// Button Variables
+	private JButton btnOkWithdrawl;
+	private JButton btnCancelWithdrawl;
 
 	public withdrawl(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,19 +51,35 @@ public class withdrawl extends JFrame {
 		txtTransactionDesc.setBounds(160, 79, 267, 20);
 		contentPane.add(txtTransactionDesc);
 		
-		JButton btnOkWithdraw = new JButton("Ok");
-		btnOkWithdraw.setBounds(160, 123, 89, 23);
-		contentPane.add(btnOkWithdraw);
+		btnOkWithdrawl = new JButton("Ok");
+		btnOkWithdrawl.setBounds(160, 123, 89, 23);
+		contentPane.add(btnOkWithdrawl);
 		
-		JButton btnCancelWithdraw = new JButton("Cancel");
-		btnCancelWithdraw.setBounds(259, 123, 89, 23);
-		contentPane.add(btnCancelWithdraw);
+		btnCancelWithdrawl = new JButton("Cancel");
+		btnCancelWithdrawl.setBounds(259, 123, 89, 23);
+		contentPane.add(btnCancelWithdrawl);
 		
 		model = myModel;
 	}
 	
+	// --------------------------------------------------------------- Public Methods
+	
+	public void addOkButtonListener(ActionListener okButton) {
+		btnOkWithdrawl.addActionListener(okButton);
+	}
+	
+	public void addCancelButtonListener(ActionListener cancelButton) {
+		btnCancelWithdrawl.addActionListener(cancelButton);
+	}
+	
+
+	// --------------------------------------------------------------- Changing Views
+	
 	public void withdrawlAccountVisible() {
 		this.setVisible(true);
 	}
-
+	
+	public void windowDisappear() {
+		this.setVisible(false);
+	}
 }

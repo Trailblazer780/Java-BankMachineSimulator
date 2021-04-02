@@ -110,6 +110,19 @@ public class Controller {
 			
 		});
 		
+		// ------------------------------------------------ Withdrawl Account Action Listeners
+		
+		withdrawlAcc.addOkButtonListener((ActionEvent e) -> {
+			withdrawlAcc.windowDisappear();
+			mainMenu.windowAppear();
+			System.out.println("clicked - Withdrawl Menu - Ok Button");
+		});
+		
+		withdrawlAcc.addCancelButtonListener((ActionEvent e) -> {
+			withdrawlAcc.windowDisappear();
+			mainMenu.windowAppear();
+			System.out.println("clicked - Withdrawl Menu - Cancel Button");
+		});
 	}
 }
 	
