@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,6 +15,10 @@ public class deposit extends JFrame {
 	private JTextField txtDepositAmount;
 	private JTextField txtDepositDesc;
 	private Model model;
+	
+	// Button Variables
+	private JButton btnOkDeposit;
+	private JButton btnCancelDeposit;
 
 
 	public deposit(Model myModel) {
@@ -37,13 +42,13 @@ public class deposit extends JFrame {
 		lblTransactionDesc.setBounds(22, 82, 121, 14);
 		contentPane.add(lblTransactionDesc);
 		
-		JButton btnOkWithdraw = new JButton("Ok");
-		btnOkWithdraw.setBounds(160, 123, 89, 23);
-		contentPane.add(btnOkWithdraw);
+		btnOkDeposit = new JButton("Ok");
+		btnOkDeposit.setBounds(160, 123, 89, 23);
+		contentPane.add(btnOkDeposit);
 		
-		JButton btnCancelWithdraw = new JButton("Cancel");
-		btnCancelWithdraw.setBounds(259, 123, 89, 23);
-		contentPane.add(btnCancelWithdraw);
+		btnCancelDeposit = new JButton("Cancel");
+		btnCancelDeposit.setBounds(259, 123, 89, 23);
+		contentPane.add(btnCancelDeposit);
 		
 		txtDepositAmount = new JTextField();
 		txtDepositAmount.setBounds(149, 42, 100, 20);
@@ -58,10 +63,25 @@ public class deposit extends JFrame {
 		model = myModel;
 	}
 	
-	// ---------------------------------------------------- Public Methods
+	// --------------------------------------------------------------- Public Methods
+	
+	public void addOkButtonListener(ActionListener okButton) {
+		btnOkDeposit.addActionListener(okButton);
+	}
+	
+	public void addCancelButtonListener(ActionListener cancelButton) {
+		btnCancelDeposit.addActionListener(cancelButton);
+	}
+	
+	
+	// --------------------------------------------------------------- Changing Views
 	
 	public void depositAccountVisible() {
 		this.setVisible(true);
+	}
+	
+	public void windowDisappear() {
+		this.setVisible(false);
 	}
 	
 	

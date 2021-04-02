@@ -67,9 +67,9 @@ public class Controller {
 		
 		createAcc.addOkButtonListener((ActionEvent e) -> {
 			createAcc.windowDisappear();
+			// ------------- Do Stuff -------------
 			mainMenu.windowAppear();
 			System.out.println("clicked - Create Menu - Ok Button");
-			// ------------- Do Stuff -------------
 		});
 		
 		createAcc.addCanelButtonListener((ActionEvent e) -> {
@@ -82,6 +82,7 @@ public class Controller {
 		
 		deleteAcc.addDeleteButtonListener((ActionEvent e) -> {
 			deleteAcc.windowDisappear();
+			// ------------- Do Stuff -------------
 			mainMenu.windowAppear();
 			System.out.println("clicked - Delete Menu - Delete Button");
 		});
@@ -89,8 +90,25 @@ public class Controller {
 		deleteAcc.addCanelButtonListener((ActionEvent e) -> {
 			deleteAcc.windowDisappear();
 			mainMenu.windowAppear();
+			System.out.println("clicked - Delete Menu - Canel Button");
 		});
 		
+		// ------------------------------------------------ Deposit Account Action Listeners
+		
+		makeDeposit.addOkButtonListener((ActionEvent e) -> {
+			makeDeposit.windowDisappear();
+			// ------------- Do Stuff -------------
+			
+			mainMenu.windowAppear();
+			System.out.println("clicked - Deposit Menu - Ok Button");
+		});
+		
+		makeDeposit.addCancelButtonListener((ActionEvent e) -> {
+			makeDeposit.windowDisappear();
+			mainMenu.windowAppear();
+			System.out.println("clicked - Deposit Menu - Cancel Button");
+			
+		});
 		
 	}
 }
