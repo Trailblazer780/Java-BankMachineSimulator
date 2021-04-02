@@ -8,7 +8,7 @@ public class Main {
 		deleteAccount deleteAcc = new deleteAccount(model);
 		deposit makeDeposit = new deposit(model);
 		selectAccount selectAcc = new selectAccount(model);
-		viewAccount viewAcc = new viewAccount();
+		viewAccount viewAcc = new viewAccount(model);
 		withdrawl withdrawlAcc = new withdrawl();
 		Controller controller = new Controller(model, menuMain, createAcc, deleteAcc, makeDeposit, selectAcc, viewAcc, withdrawlAcc);
 		

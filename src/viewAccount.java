@@ -15,27 +15,9 @@ import javax.swing.JTextArea;
 public class viewAccount extends JFrame {
 
 	private JPanel contentPane;
+	private Model model;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					viewAccount frame = new viewAccount();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public viewAccount() {
+	public viewAccount(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 340);
 		contentPane = new JPanel();
@@ -63,5 +45,13 @@ public class viewAccount extends JFrame {
 		JButton btnOkViewAccount = new JButton("Ok");
 		btnOkViewAccount.setBounds(10, 256, 89, 23);
 		contentPane.add(btnOkViewAccount);
+		
+		model = myModel;
+	}
+	
+	// ---------------------------------------------------- Public Methods
+	
+	public void viewAccountVisible() {
+		this.setVisible(true);
 	}
 }

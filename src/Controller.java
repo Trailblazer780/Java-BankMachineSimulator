@@ -48,6 +48,13 @@ public class Controller {
 		mainMenu.addDepositButtonListener((ActionEvent e) -> {
 			mainMenu.windowDisappear();
 			makeDeposit.depositAccountVisible();
+			System.out.println("clicked - Deposit Button");
+		});
+		
+		mainMenu.addViewAccButtonListener((ActionEvent e) -> {
+			mainMenu.windowDisappear();
+			viewAcc.viewAccountVisible();
+			System.out.println("clicked - View Button");
 		});
 		
 		
