@@ -14,6 +14,10 @@ public class deleteAccount extends JFrame {
 	private JPanel contentPane;
 	private Model model;
 	
+	// Button Variables
+	private JButton btnDelete;
+	private JButton btnDeleteCancel;
+	
 	
 	public deleteAccount(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,11 +39,11 @@ public class deleteAccount extends JFrame {
 		lblCurrentAccount.setBounds(143, 38, 154, 14);
 		contentPane.add(lblCurrentAccount);
 		
-		JButton btnDelete = new JButton("Delete");
+		btnDelete = new JButton("Delete");
 		btnDelete.setBounds(116, 63, 89, 23);
 		contentPane.add(btnDelete);
 		
-		JButton btnDeleteCancel = new JButton("Cancel");
+		btnDeleteCancel = new JButton("Cancel");
 		btnDeleteCancel.setBounds(215, 63, 89, 23);
 		contentPane.add(btnDeleteCancel);
 		
@@ -48,10 +52,24 @@ public class deleteAccount extends JFrame {
 	
 	// ---------------------------------------------------- Public Methods
 	
+	public void addDeleteButtonListener(ActionListener deleteButton) {
+		btnDelete.addActionListener(deleteButton);
+	}
+	
+	public void addCanelButtonListener(ActionListener cancelButton) {
+		btnDeleteCancel.addActionListener(cancelButton);
+	}
+	
+	
+	// --------------------------------------------------------------- Changing Views
+	
 	public void deleteAccountVisible() {
 		this.setVisible(true);
 	}
 	
+	public void windowDisappear() {
+		this.setVisible(false);
+	}
 	
 
 }
