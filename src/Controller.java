@@ -57,6 +57,12 @@ public class Controller {
 			System.out.println("clicked - View Button");
 		});
 		
+		mainMenu.addWithdrawlButtonListener((ActionEvent e) -> {
+			mainMenu.windowDisappear();
+			withdrawlAcc.withdrawlAccountVisible();
+			System.out.println("clicked - Withdrawl Button");
+		});
+		
 		
 	}
 }

@@ -9,7 +9,7 @@ public class Main {
 		deposit makeDeposit = new deposit(model);
 		selectAccount selectAcc = new selectAccount(model);
 		viewAccount viewAcc = new viewAccount(model);
-		withdrawl withdrawlAcc = new withdrawl();
+		withdrawl withdrawlAcc = new withdrawl(model);
 		Controller controller = new Controller(model, menuMain, createAcc, deleteAcc, makeDeposit, selectAcc, viewAcc, withdrawlAcc);
 		
 		menuMain.setVisible(true);
