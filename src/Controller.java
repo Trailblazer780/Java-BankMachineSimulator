@@ -80,7 +80,16 @@ public class Controller {
 		
 		// ------------------------------------------------ Delete Account Action Listeners
 		
+		deleteAcc.addDeleteButtonListener((ActionEvent e) -> {
+			deleteAcc.windowDisappear();
+			mainMenu.windowAppear();
+			System.out.println("clicked - Delete Menu - Delete Button");
+		});
 		
+		deleteAcc.addCanelButtonListener((ActionEvent e) -> {
+			deleteAcc.windowDisappear();
+			mainMenu.windowAppear();
+		});
 		
 		
 	}
