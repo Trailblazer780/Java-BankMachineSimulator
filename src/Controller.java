@@ -39,6 +39,12 @@ public class Controller {
 			System.out.println("clicked - Create Button");
 		});
 		
+		mainMenu.addDeleteButtonListener((ActionEvent e) -> {
+			mainMenu.windowAppear();
+			deleteAcc.deleteAccountVisible();
+			System.out.println("clicked - Delete Button");
+		});
+		
 		
 	}
 }

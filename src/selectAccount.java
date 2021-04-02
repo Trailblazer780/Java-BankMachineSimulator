@@ -50,6 +50,7 @@ public class selectAccount extends JFrame {
 	}
 	
 	// ---------------------------------------------------- Public Methods
+	
 	public void selectAccountVisible() {
 		this.setVisible(true);
 	}

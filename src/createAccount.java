@@ -71,6 +71,9 @@ public class createAccount extends JFrame {
 		model = myModel;
 	}
 	
+	
+	// ---------------------------------------------------- Public Methods
+	
 	public void createAccountVisible() {
 		this.setVisible(true);
 	}

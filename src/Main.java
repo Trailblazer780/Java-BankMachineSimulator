@@ -5,7 +5,7 @@ public class Main {
 		Model model = new Model();
 		mainMenu menuMain = new mainMenu(model);
 		createAccount createAcc = new createAccount(model);
-		deleteAccount deleteAcc = new deleteAccount();
+		deleteAccount deleteAcc = new deleteAccount(model);
 		deposit makeDeposit = new deposit();
 		selectAccount selectAcc = new selectAccount(model);
 		viewAccount viewAcc = new viewAccount();

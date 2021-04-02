@@ -18,6 +18,7 @@ public class mainMenu extends JFrame {
 	private JButton btnQuit;
 	private JButton btnSelectAccount;
 	private JButton btnCreate;
+	private JButton btnDelete;
 	
 	
 	public mainMenu(Model myModel) {
@@ -44,7 +45,7 @@ public class mainMenu extends JFrame {
 		btnCreate.setBounds(47, 147, 89, 23);
 		contentPane.add(btnCreate);
 		
-		JButton btnDelete = new JButton("Delete");
+		btnDelete = new JButton("Delete");
 		btnDelete.setBounds(47, 181, 89, 23);
 		contentPane.add(btnDelete);
 		
@@ -81,6 +82,10 @@ public class mainMenu extends JFrame {
 		btnCreate.addActionListener(createButton);
 	}
 	
+	public void addDeleteButtonListener(ActionListener deleteButton) {
+		btnDelete.addActionListener(deleteButton);
+	}
+	
 	
 	
 	// --------------------------------------------------------------- Changing Views
@@ -89,7 +94,8 @@ public class mainMenu extends JFrame {
 		this.setVisible(false);
 	}
 	
-	
-	
+	public void windowAppear() {
+		this.setVisible(true);
+	}
 	
 }

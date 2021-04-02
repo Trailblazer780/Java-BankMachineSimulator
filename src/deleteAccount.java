@@ -12,27 +12,10 @@ import javax.swing.border.EmptyBorder;
 public class deleteAccount extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					deleteAccount frame = new deleteAccount();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public deleteAccount() {
+	private Model model;
+	
+	
+	public deleteAccount(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 340);
 		contentPane = new JPanel();
@@ -59,6 +42,16 @@ public class deleteAccount extends JFrame {
 		JButton btnDeleteCancel = new JButton("Cancel");
 		btnDeleteCancel.setBounds(215, 63, 89, 23);
 		contentPane.add(btnDeleteCancel);
+		
+		model = myModel;
 	}
+	
+	// ---------------------------------------------------- Public Methods
+	
+	public void deleteAccountVisible() {
+		this.setVisible(true);
+	}
+	
+	
 
 }
