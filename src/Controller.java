@@ -40,9 +40,14 @@ public class Controller {
 		});
 		
 		mainMenu.addDeleteButtonListener((ActionEvent e) -> {
-			mainMenu.windowAppear();
+			mainMenu.windowDisappear();
 			deleteAcc.deleteAccountVisible();
 			System.out.println("clicked - Delete Button");
+		});
+		
+		mainMenu.addDepositButtonListener((ActionEvent e) -> {
+			mainMenu.windowDisappear();
+			makeDeposit.depositAccountVisible();
 		});
 		
 		

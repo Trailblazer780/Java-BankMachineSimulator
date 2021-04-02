@@ -19,6 +19,7 @@ public class mainMenu extends JFrame {
 	private JButton btnSelectAccount;
 	private JButton btnCreate;
 	private JButton btnDelete;
+	private JButton btnDeposit;
 	
 	
 	public mainMenu(Model myModel) {
@@ -33,7 +34,7 @@ public class mainMenu extends JFrame {
 		btnSelectAccount.setBounds(47, 45, 89, 23);
 		contentPane.add(btnSelectAccount);
 		
-		JButton btnDeposit = new JButton("Deposit");
+		btnDeposit = new JButton("Deposit");
 		btnDeposit.setBounds(47, 79, 89, 23);
 		contentPane.add(btnDeposit);
 		
@@ -84,6 +85,10 @@ public class mainMenu extends JFrame {
 	
 	public void addDeleteButtonListener(ActionListener deleteButton) {
 		btnDelete.addActionListener(deleteButton);
+	}
+	
+	public void addDepositButtonListener(ActionListener depositButton) {
+		btnDeposit.addActionListener(depositButton);
 	}
 	
 	

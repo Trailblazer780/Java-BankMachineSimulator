@@ -13,27 +13,10 @@ public class deposit extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtDepositAmount;
 	private JTextField txtDepositDesc;
+	private Model model;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					deposit frame = new deposit();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
-	public deposit() {
+	public deposit(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 340);
 		contentPane = new JPanel();
@@ -71,6 +54,16 @@ public class deposit extends JFrame {
 		txtDepositDesc.setBounds(147, 79, 304, 20);
 		contentPane.add(txtDepositDesc);
 		txtDepositDesc.setColumns(10);
+		
+		model = myModel;
 	}
+	
+	// ---------------------------------------------------- Public Methods
+	
+	public void depositAccountVisible() {
+		this.setVisible(true);
+	}
+	
+	
 
 }
