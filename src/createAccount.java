@@ -19,6 +19,10 @@ public class createAccount extends JFrame {
 	private JTextField txtAccountDescription;
 	private JTextField textField;
 	private Model model;
+	
+	// Button Variables
+	private JButton btnOkCreate;
+	private JButton btnCancelCreate;
 
 
 	public createAccount(Model myModel) {
@@ -60,11 +64,11 @@ public class createAccount extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnOkCreate = new JButton("Ok");
+		btnOkCreate = new JButton("Ok");
 		btnOkCreate.setBounds(69, 178, 89, 23);
 		contentPane.add(btnOkCreate);
 		
-		JButton btnCancelCreate = new JButton("Cancel");
+		btnCancelCreate = new JButton("Cancel");
 		btnCancelCreate.setBounds(182, 178, 89, 23);
 		contentPane.add(btnCancelCreate);
 		
@@ -72,10 +76,25 @@ public class createAccount extends JFrame {
 	}
 	
 	
-	// ---------------------------------------------------- Public Methods
+	// --------------------------------------------------------------- Public Methods
+	
+	public void addOkButtonListener(ActionListener okButton) {
+		btnOkCreate.addActionListener(okButton);
+	}
+	
+	public void addCanelButtonListener(ActionListener cancelButton) {
+		btnCancelCreate.addActionListener(cancelButton);
+	}
+	
+	
+	// --------------------------------------------------------------- Changing Views
 	
 	public void createAccountVisible() {
 		this.setVisible(true);
+	}
+	
+	public void windowDisappear() {
+		this.setVisible(false);
 	}
 	
 }

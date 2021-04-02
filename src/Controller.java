@@ -23,12 +23,12 @@ public class Controller {
 		
 		// ------------------------------------------------ Main Menu Action Listeners
 		mainMenu.addQuitButtonListener((ActionEvent e) -> {
-			System.out.println("clicked - Quit Button");
+			System.out.println("clicked - Main Menu - Quit Button");
 			System.exit(0);
 		});
 		
 		mainMenu.addSelectButtonListener((ActionEvent e) -> {
-			System.out.println("clicked - Select Button");
+			System.out.println("clicked - Main Menu - Select Button");
 			mainMenu.windowDisappear();
 			selectAcc.selectAccountVisible();
 		});
@@ -36,32 +36,51 @@ public class Controller {
 		mainMenu.addCreateButtonListener((ActionEvent e) -> {
 			mainMenu.windowDisappear();
 			createAcc.createAccountVisible();
-			System.out.println("clicked - Create Button");
+			System.out.println("clicked - Main Menu - Create Button");
 		});
 		
 		mainMenu.addDeleteButtonListener((ActionEvent e) -> {
 			mainMenu.windowDisappear();
 			deleteAcc.deleteAccountVisible();
-			System.out.println("clicked - Delete Button");
+			System.out.println("clicked - Main Menu - Delete Button");
 		});
 		
 		mainMenu.addDepositButtonListener((ActionEvent e) -> {
 			mainMenu.windowDisappear();
 			makeDeposit.depositAccountVisible();
-			System.out.println("clicked - Deposit Button");
+			System.out.println("clicked - Main Menu - Deposit Button");
 		});
 		
 		mainMenu.addViewAccButtonListener((ActionEvent e) -> {
 			mainMenu.windowDisappear();
 			viewAcc.viewAccountVisible();
-			System.out.println("clicked - View Button");
+			System.out.println("clicked - Main Menu - View Button");
 		});
 		
 		mainMenu.addWithdrawlButtonListener((ActionEvent e) -> {
 			mainMenu.windowDisappear();
 			withdrawlAcc.withdrawlAccountVisible();
-			System.out.println("clicked - Withdrawl Button");
+			System.out.println("clicked - Main Menu - Withdrawl Button");
 		});
+		
+		// ------------------------------------------------ Create Account Action Listeners
+		
+		createAcc.addOkButtonListener((ActionEvent e) -> {
+			createAcc.windowDisappear();
+			mainMenu.windowAppear();
+			System.out.println("clicked - Create Menu - Ok Button");
+			// ------------- Do Stuff -------------
+		});
+		
+		createAcc.addCanelButtonListener((ActionEvent e) -> {
+			createAcc.windowDisappear();
+			mainMenu.windowAppear();
+			System.out.println("clicked - Create Menu - Cancel Button");
+		});
+		
+		// ------------------------------------------------ Delete Account Action Listeners
+		
+		
 		
 		
 	}
