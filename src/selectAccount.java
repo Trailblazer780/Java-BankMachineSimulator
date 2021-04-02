@@ -16,6 +16,10 @@ public class selectAccount extends JFrame {
 
 	private JPanel contentPane;
 	private Model model;
+	
+	// Button Variables
+	private JButton btnOkSelectAcc;
+	private JButton btnCancelSelectAcc;
 
 	public selectAccount(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,21 +42,35 @@ public class selectAccount extends JFrame {
 		list.setBounds(93, 37, 151, 155);
 		contentPane.add(list);
 		
-		JButton btnOkSelectAcc = new JButton("Ok");
+		btnOkSelectAcc = new JButton("Ok");
 		btnOkSelectAcc.setBounds(93, 223, 89, 23);
 		contentPane.add(btnOkSelectAcc);
 		
-		JButton btnCancelAcc = new JButton("Cancel");
-		btnCancelAcc.setBounds(203, 223, 89, 23);
-		contentPane.add(btnCancelAcc);
+		btnCancelSelectAcc = new JButton("Cancel");
+		btnCancelSelectAcc.setBounds(203, 223, 89, 23);
+		contentPane.add(btnCancelSelectAcc);
 		
 		model = myModel;
 	}
 	
 	// ---------------------------------------------------- Public Methods
 	
+	public void addOkButtonListener(ActionListener okButton) {
+		btnOkSelectAcc.addActionListener(okButton);
+	}
+	
+	public void addCancelButtonListener(ActionListener cancelButton) {
+		btnCancelSelectAcc.addActionListener(cancelButton);
+	}
+
+
+	// --------------------------------------------------------------- Changing Views
+	
 	public void selectAccountVisible() {
 		this.setVisible(true);
 	}
-
+	
+	public void windowDisappear() {
+		this.setVisible(false);
+	}
 }
