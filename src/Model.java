@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
 
+import javax.swing.JTextArea;
+
 public class Model {
 	
 	
@@ -35,8 +37,6 @@ public class Model {
 			savings.setAccountDescription(accountDescription);
 			setSelectedAccount(savings);
 			accounts.add(savings);
-			//System.out.println(accounts);
-			//System.out.println("Account 1");
 		}
 		
 		else if(createAccountIndex == 2) {
@@ -47,14 +47,11 @@ public class Model {
 			airmileSavings.setAccountDescription(accountDescription);
 			setSelectedAccount(airmileSavings);
 			accounts.add(airmileSavings);
-			//System.out.println(accounts);
-			///System.out.println("Account 2");
 		}
 	}
 	
 	public void getInitialDeposit(Double firstDeposit) {
 		initialDeposit = firstDeposit;
-		//System.out.println(initialDeposit);
 	}
 	
 	public void getNewAccountNumber() {
@@ -62,17 +59,35 @@ public class Model {
 		System.out.println(newAccountNumber);
 	}
 	
+	// ------------------------------------------------------- Selecting accounts
+	
 	public void setSelectedAccount(Account account) {
 		currentSelectedAccount = account;
-		currentSelectedAccount.getBalance();
-		currentSelectedAccount.getAccountNumber();
-		//System.out.println(currentSelectedAccount.getAccountNumber());
-		//System.out.println(currentSelectedAccount.getBalance());
-		//System.out.println(currentSelectedAccount);
 	}
 	
-	// ------------------------------------------------------- Creating Accounts
 	
+	
+	// ------------------------------------------------------- View Account
+	
+	public void generateTransactions(JTextArea transactions) {
+		if(currentSelectedAccount.getAccountType() == "Savings Account") {
+			transactions.setText(currentSelectedAccount.getAccountType() +"\n");
+			transactions.append("Account Description: " + accountDescription + "\n");
+			transactions.append("Account Type: " + currentSelectedAccount.getAccountType() +"\n");
+			transactions.append("Balance: $" + currentSelectedAccount.getBalance());
+		}
+		
+		if(currentSelectedAccount.getAccountType() == "Airmile Savings Account") {
+			String airmilesBalance = String.valueOf(currentSelectedAccount.getAirmilesBalance());
+			transactions.setText(currentSelectedAccount.getAccountType() + "\n");
+			transactions.append("Airmiles Balance: " + airmilesBalance + "\n");
+			transactions.append("Account Description: " + accountDescription + "\n");
+			transactions.append("Account Type: " + currentSelectedAccount.getAccountType() +"\n");
+			transactions.append("Balance: $" + currentSelectedAccount.getBalance());
+		}
+		
+	}
+
 	
 	
 	

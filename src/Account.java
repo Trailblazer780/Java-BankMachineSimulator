@@ -4,6 +4,7 @@ public abstract class Account {
 	protected double balance;
 	private int accountNumber;
 	private String description;
+	private String accountType;
 	
 	// ------------------------------------------- Constructor Method
 	public Account() {
@@ -35,6 +36,10 @@ public abstract class Account {
 		return description;
 	}
 	
+	public String getAccountType() {
+		return accountType;
+	}
+	
 	// -------------------------------------------- Public Methods
 	
 	public void subtractBalance(double withdrawAmount) {
@@ -44,6 +49,13 @@ public abstract class Account {
 	public void addBalance(double depositAmount) {
 		balance = balance + depositAmount;
 	}
+	
+	public void chargeWithdrawFee(double fee) {
+		balance = balance - fee;
+	}
+	
+	public abstract int getAirmilesBalance();
+	public abstract void setAirmilesBalance(int miles);
 	
 	
 	

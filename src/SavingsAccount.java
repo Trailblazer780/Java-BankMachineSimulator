@@ -9,11 +9,18 @@ public class SavingsAccount extends Account {
 		accountType = "Savings Account";
 	}
 	
-	public void chargeWithdrawFee() {
-		balance = balance - withdrawFee;
-	}
-	
 	public String getAccountType() {
 		return accountType;
+	}
+
+	@Override
+	public int getAirmilesBalance() {
+		return 0;
+	}
+
+	@Override
+	public void setAirmilesBalance(int miles) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -16,6 +16,7 @@ public class selectAccount extends JFrame {
 
 	private JPanel contentPane;
 	private Model model;
+	private JList list;
 	
 	// Button Variables
 	private JButton btnOkSelectAcc;
@@ -37,7 +38,7 @@ public class selectAccount extends JFrame {
 		lblSelectAccount.setBounds(10, 38, 80, 14);
 		contentPane.add(lblSelectAccount);
 		
-		JList list = new JList();
+		list = new JList();
 		list.setBorder(new LineBorder(new Color(0, 0, 0)));
 		list.setBounds(93, 37, 151, 155);
 		contentPane.add(list);
@@ -61,6 +62,10 @@ public class selectAccount extends JFrame {
 	
 	public void addCancelButtonListener(ActionListener cancelButton) {
 		btnCancelSelectAcc.addActionListener(cancelButton);
+	}
+	
+	public void populateSelectionList() {
+		
 	}
 
 

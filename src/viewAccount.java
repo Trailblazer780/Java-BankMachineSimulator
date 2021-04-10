@@ -16,9 +16,10 @@ public class viewAccount extends JFrame {
 
 	private JPanel contentPane;
 	private Model model;
-
+	private JTextArea txtTransactions;
 	// Button Variables
 	private JButton btnOkViewAccount;
+	
 	
 	public viewAccount(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,7 +43,7 @@ public class viewAccount extends JFrame {
 		scrollPane.setBounds(10, 59, 497, 186);
 		contentPane.add(scrollPane);
 		
-		JTextArea txtTransactions = new JTextArea();
+		txtTransactions = new JTextArea();
 		scrollPane.setViewportView(txtTransactions);
 		
 		btnOkViewAccount = new JButton("Ok");
@@ -56,6 +57,14 @@ public class viewAccount extends JFrame {
 	
 	public void addOkButtonListener(ActionListener okButton) {
 		btnOkViewAccount.addActionListener(okButton);
+	}
+	
+	public void populateTransactions() {
+		model.generateTransactions(txtTransactions);
+	}
+	
+	public void reset() {
+		//txtTransactions.setText("");
 	}
 	
 

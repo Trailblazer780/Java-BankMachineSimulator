@@ -19,11 +19,17 @@ public class AirmileSavingsAccount extends Account {
 		airmiles = airmiles + airmilesToAdd;
 	}
 	
-	public void chargeWithdrawFee() {
-		balance = balance - withdrawFee;
+	public int getAirmilesBalance() {
+		return airmiles;
 	}
 	
 	public String getAccountType() {
 		return accountType;
 	}
+
+	public void setAirmilesBalance(int miles) {
+		airmiles = miles;
+	}
+
+
 }

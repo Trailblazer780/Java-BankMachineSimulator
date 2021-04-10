@@ -53,6 +53,7 @@ public class Controller {
 		
 		mainMenu.addViewAccButtonListener((ActionEvent e) -> {
 			mainMenu.windowDisappear();
+			viewAcc.populateTransactions();
 			viewAcc.viewAccountVisible();
 			System.out.println("clicked - Main Menu - View Button");
 		});
