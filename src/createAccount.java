@@ -93,6 +93,18 @@ public class createAccount extends JFrame {
 		btnCancelCreate.addActionListener(cancelButton);
 	}
 	
+	public void getSelectedAccountIndex() {
+		 int accountSelected = 0;
+
+		if(list.getSelectedIndex() == 0) {
+			accountSelected = 1;
+		}
+		else if (list.getSelectedIndex() == 1) {
+			accountSelected = 2;
+		}
+		
+		model.getSelectedAccountIndex(accountSelected);
+	}
 	
 	// --------------------------------------------------------------- Changing Views
 	

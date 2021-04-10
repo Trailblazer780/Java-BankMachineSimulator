@@ -68,6 +68,8 @@ public class Controller {
 		createAcc.addOkButtonListener((ActionEvent e) -> {
 			createAcc.windowDisappear();
 			// ------------- Do Stuff -------------
+			createAcc.getSelectedAccountIndex();
+			//-------------------------------------
 			mainMenu.windowAppear();
 			System.out.println("clicked - Create Menu - Ok Button");
 		});
