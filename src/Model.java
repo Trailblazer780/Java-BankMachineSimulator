@@ -3,6 +3,8 @@ import java.util.ArrayList;
 
 public class Model {
 	
+	
+	private Account currentSelectedAccount;
 	ArrayList<Account> accounts = new ArrayList<Account>();
 	private int createAccountIndex;
 	private int newAccountNumber;
@@ -13,7 +15,7 @@ public class Model {
 		createAccountIndex = 0;
 	}
 	
-	// --------------------------------- Creating Accounts
+	// ------------------------------------------------------- Creating Accounts
 	
 	public void getSelectedAccountIndex(int accountSelected) {
 		createAccountIndex = accountSelected;
@@ -31,8 +33,9 @@ public class Model {
 			savings.setStartingBalance(initialDeposit);
 			savings.setAccountNumber(newAccountNumber);
 			savings.setAccountDescription(accountDescription);
+			setSelectedAccount(savings);
 			accounts.add(savings);
-			System.out.println(accounts);
+			//System.out.println(accounts);
 			//System.out.println("Account 1");
 		}
 		
@@ -42,8 +45,9 @@ public class Model {
 			airmileSavings.setStartingBalance(initialDeposit);
 			airmileSavings.setAccountNumber(newAccountNumber);
 			airmileSavings.setAccountDescription(accountDescription);
+			setSelectedAccount(airmileSavings);
 			accounts.add(airmileSavings);
-			System.out.println(accounts);
+			//System.out.println(accounts);
 			///System.out.println("Account 2");
 		}
 	}
@@ -58,11 +62,16 @@ public class Model {
 		System.out.println(newAccountNumber);
 	}
 	
+	public void setSelectedAccount(Account account) {
+		currentSelectedAccount = account;
+		currentSelectedAccount.getBalance();
+		currentSelectedAccount.getAccountNumber();
+		//System.out.println(currentSelectedAccount.getAccountNumber());
+		//System.out.println(currentSelectedAccount.getBalance());
+		//System.out.println(currentSelectedAccount);
+	}
 	
-	
-	// ------------------------------------------------------- Gets / Sets
-	
-	
+	// ------------------------------------------------------- Creating Accounts
 	
 	
 	

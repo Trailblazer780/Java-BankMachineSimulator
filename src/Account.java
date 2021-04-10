@@ -31,6 +31,10 @@ public abstract class Account {
 		return accountNumber;
 	}
 	
+	public String getAccountDescription() {
+		return description;
+	}
+	
 	// -------------------------------------------- Public Methods
 	
 	public void subtractBalance(double withdrawAmount) {
