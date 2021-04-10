@@ -66,17 +66,26 @@ public class Controller {
 		// ------------------------------------------------ Create Account Action Listeners
 		
 		createAcc.addOkButtonListener((ActionEvent e) -> {
-			createAcc.windowDisappear();
+			//createAcc.windowDisappear();
 			// ------------- Do Stuff -------------
 			createAcc.getSelectedAccountIndex();
+			createAcc.getInitialDeposit();
+			createAcc.getAccountDescription();
+			if (createAcc.checkInput()) {
+				createAcc.windowDisappear();
+				mainMenu.windowAppear();
+				createAcc.reset();
+			}
+			//createAcc.windowDisappear();
 			//-------------------------------------
-			mainMenu.windowAppear();
+			//mainMenu.windowAppear();
 			System.out.println("clicked - Create Menu - Ok Button");
 		});
 		
 		createAcc.addCanelButtonListener((ActionEvent e) -> {
 			createAcc.windowDisappear();
 			mainMenu.windowAppear();
+			createAcc.reset();
 			System.out.println("clicked - Create Menu - Cancel Button");
 		});
 		

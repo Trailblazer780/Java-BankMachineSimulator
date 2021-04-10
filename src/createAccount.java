@@ -3,6 +3,7 @@ import javax.swing.DefaultListModel;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Console;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,8 +19,11 @@ public class createAccount extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtAccountDescription;
-	private JTextField textField;
+	private JTextField txtStartingBalance;
+	private TextFieldValidator txtValidator1;
+	private TextFieldValidator txtValidator2;
 	private Model model;
+	private Boolean inputValid = false;
 	
 	// Button Variables
 	private JButton btnOkCreate;
@@ -61,15 +65,19 @@ public class createAccount extends JFrame {
 		txtAccountDescription.setBounds(153, 96, 285, 20);
 		contentPane.add(txtAccountDescription);
 		txtAccountDescription.setColumns(10);
+		txtValidator2 = new TextFieldValidator(txtAccountDescription);
+		txtValidator2.setRegExp("^[A-Za-z]{1,50}$");
 		
 		JLabel lblStartingBalance = new JLabel("Starting Balance: $");
 		lblStartingBalance.setBounds(10, 130, 133, 14);
 		contentPane.add(lblStartingBalance);
 		
-		textField = new JTextField();
-		textField.setBounds(153, 127, 102, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtStartingBalance = new JTextField();
+		txtStartingBalance.setBounds(153, 127, 102, 20);
+		contentPane.add(txtStartingBalance);
+		txtStartingBalance.setColumns(10);
+		txtValidator1 = new TextFieldValidator(txtStartingBalance);
+		txtValidator1.setRegExp("^(([1-9]\\d{0,2}(,\\d{3})*)|(([1-9]\\d*)?\\d))(\\.\\d\\d)?$");
 		
 		btnOkCreate = new JButton("Ok");
 		btnOkCreate.setBounds(166, 178, 89, 23);
@@ -104,6 +112,49 @@ public class createAccount extends JFrame {
 		}
 		
 		model.getSelectedAccountIndex(accountSelected);
+	}
+	
+	public void getInitialDeposit() {
+		if(txtValidator1.check()) {
+			txtValidator1.setErrorColor(Color.GRAY);
+			double firstDeposit = 0;
+			firstDeposit = Double.parseDouble(txtStartingBalance.getText());
+			model.getInitialDeposit(firstDeposit);
+		}
+		else if(txtValidator1.check() == false){
+			txtValidator1.setErrorColor(new Color(255,0,0));
+			System.out.println("error");
+		}
+	}
+	
+	public void getAccountDescription() {
+		String description = "";
+		if(txtValidator2.check()) {
+			txtValidator2.setErrorColor(Color.GRAY);
+			description = txtAccountDescription.getText();
+			model.getNewAccountDescription(description);
+		}
+		else if(txtValidator2.check() == false) {
+			txtValidator2.setErrorColor(new Color(255,0,0));
+		}
+	}
+	
+	public Boolean checkInput() {
+		if(txtValidator1.check() && txtValidator2.check()) {
+			inputValid = true;
+		}
+		else {
+			inputValid = false;
+		}
+		
+		return inputValid;
+	}
+	
+	public void reset() {
+		txtAccountDescription.setText("");
+		txtStartingBalance.setText("");
+		txtValidator1.setErrorColor(Color.GRAY);
+		txtValidator2.setErrorColor(Color.GRAY);
 	}
 	
 	// --------------------------------------------------------------- Changing Views
