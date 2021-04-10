@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import javax.swing.DefaultListModel;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,8 +24,11 @@ public class createAccount extends JFrame {
 	// Button Variables
 	private JButton btnOkCreate;
 	private JButton btnCancelCreate;
-
-
+	
+	// Other Variables
+	private JList<String> list;
+	private DefaultListModel<String> listModel = new DefaultListModel();
+	
 	public createAccount(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 340);
@@ -38,38 +42,41 @@ public class createAccount extends JFrame {
 		contentPane.add(lblApplicationTitle);
 		
 		JLabel lblSelectAccountType = new JLabel("Select Account Type:");
-		lblSelectAccountType.setBounds(10, 45, 102, 14);
+		lblSelectAccountType.setBounds(10, 45, 133, 14);
 		contentPane.add(lblSelectAccountType);
 		
-		JList list = new JList();
+		
+		listModel.addElement("Savings Account");
+		listModel.addElement("Airmiles Savings Account");
+		list = new JList(listModel);
 		list.setBorder(new LineBorder(new Color(0, 0, 0)));
-		list.setBounds(122, 45, 102, 35);
+		list.setBounds(153, 45, 181, 43);
 		contentPane.add(list);
 		
 		JLabel lblAccountDescription = new JLabel("Account Description:");
-		lblAccountDescription.setBounds(10, 94, 102, 14);
+		lblAccountDescription.setBounds(10, 99, 133, 14);
 		contentPane.add(lblAccountDescription);
 		
 		txtAccountDescription = new JTextField();
-		txtAccountDescription.setBounds(122, 91, 285, 20);
+		txtAccountDescription.setBounds(153, 96, 285, 20);
 		contentPane.add(txtAccountDescription);
 		txtAccountDescription.setColumns(10);
 		
 		JLabel lblStartingBalance = new JLabel("Starting Balance: $");
-		lblStartingBalance.setBounds(10, 130, 102, 14);
+		lblStartingBalance.setBounds(10, 130, 133, 14);
 		contentPane.add(lblStartingBalance);
 		
 		textField = new JTextField();
-		textField.setBounds(122, 127, 102, 20);
+		textField.setBounds(153, 127, 102, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		btnOkCreate = new JButton("Ok");
-		btnOkCreate.setBounds(69, 178, 89, 23);
+		btnOkCreate.setBounds(166, 178, 89, 23);
 		contentPane.add(btnOkCreate);
 		
 		btnCancelCreate = new JButton("Cancel");
-		btnCancelCreate.setBounds(182, 178, 89, 23);
+		btnCancelCreate.setBounds(311, 178, 89, 23);
 		contentPane.add(btnCancelCreate);
 		
 		model = myModel;
