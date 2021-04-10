@@ -2,7 +2,9 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,7 +18,11 @@ public class selectAccount extends JFrame {
 
 	private JPanel contentPane;
 	private Model model;
-	private JList list;
+	
+	private JList<String> list;
+	private DefaultListModel<String> listModel = new DefaultListModel();
+	ArrayList<Account> accountsToSelect = new ArrayList<Account>();
+	
 	
 	// Button Variables
 	private JButton btnOkSelectAcc;
@@ -38,7 +44,7 @@ public class selectAccount extends JFrame {
 		lblSelectAccount.setBounds(10, 38, 80, 14);
 		contentPane.add(lblSelectAccount);
 		
-		list = new JList();
+		list = new JList(listModel);
 		list.setBorder(new LineBorder(new Color(0, 0, 0)));
 		list.setBounds(93, 37, 151, 155);
 		contentPane.add(list);
@@ -65,7 +71,21 @@ public class selectAccount extends JFrame {
 	}
 	
 	public void populateSelectionList() {
-		
+		resetSelectionList();
+		accountsToSelect = model.getAccounts();
+		for (int i=0; i<accountsToSelect.size(); i++) {
+			listModel.addElement(accountsToSelect.get(i).getAccountDescription());
+		}
+	}
+	
+	public void getAccountIndex() {
+		int index = list.getSelectedIndex();
+		System.out.println(index);
+		model.selectAccount(index);
+	}
+	
+	public void resetSelectionList() {
+		listModel.removeAllElements();
 	}
 
 

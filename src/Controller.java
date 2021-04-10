@@ -29,6 +29,7 @@ public class Controller {
 		
 		mainMenu.addSelectButtonListener((ActionEvent e) -> {
 			System.out.println("clicked - Main Menu - Select Button");
+			selectAcc.populateSelectionList();
 			mainMenu.windowDisappear();
 			selectAcc.selectAccountVisible();
 		});
@@ -140,6 +141,7 @@ public class Controller {
 		// ------------------------------------------------ Select Account Action Listeners
 		
 		selectAcc.addOkButtonListener((ActionEvent e) -> {
+			selectAcc.getAccountIndex();
 			selectAcc.windowDisappear();
 			// ------------- Do Stuff -------------
 			

@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.JTextArea;
 
 public class Model {
@@ -65,14 +67,23 @@ public class Model {
 		currentSelectedAccount = account;
 	}
 	
+	public ArrayList<Account> getAccounts() {
+		return accounts;
+	}
 	
+	public void selectAccount(int index) {
+		currentSelectedAccount = accounts.get(index);
+		//System.out.println(accounts.get(index));
+		//setSelectedAccount(accounts.get(index));
+	}
 	
 	// ------------------------------------------------------- View Account
 	
 	public void generateTransactions(JTextArea transactions) {
+		transactions.setText("");
 		if(currentSelectedAccount.getAccountType() == "Savings Account") {
 			transactions.setText(currentSelectedAccount.getAccountType() +"\n");
-			transactions.append("Account Description: " + accountDescription + "\n");
+			transactions.append("Account Description: " + currentSelectedAccount.getAccountDescription() + "\n");
 			transactions.append("Account Type: " + currentSelectedAccount.getAccountType() +"\n");
 			transactions.append("Balance: $" + currentSelectedAccount.getBalance());
 		}
@@ -81,7 +92,7 @@ public class Model {
 			String airmilesBalance = String.valueOf(currentSelectedAccount.getAirmilesBalance());
 			transactions.setText(currentSelectedAccount.getAccountType() + "\n");
 			transactions.append("Airmiles Balance: " + airmilesBalance + "\n");
-			transactions.append("Account Description: " + accountDescription + "\n");
+			transactions.append("Account Description: " + currentSelectedAccount.getAccountDescription() + "\n");
 			transactions.append("Account Type: " + currentSelectedAccount.getAccountType() +"\n");
 			transactions.append("Balance: $" + currentSelectedAccount.getBalance());
 		}
