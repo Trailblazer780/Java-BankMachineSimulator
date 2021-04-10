@@ -72,13 +72,12 @@ public class Controller {
 			createAcc.getInitialDeposit();
 			createAcc.getAccountDescription();
 			if (createAcc.checkInput()) {
+				model.createAccount();
 				createAcc.windowDisappear();
 				mainMenu.windowAppear();
 				createAcc.reset();
 			}
-			//createAcc.windowDisappear();
 			//-------------------------------------
-			//mainMenu.windowAppear();
 			System.out.println("clicked - Create Menu - Ok Button");
 		});
 		

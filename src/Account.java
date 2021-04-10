@@ -3,6 +3,7 @@ public abstract class Account {
 	
 	protected double balance;
 	private int accountNumber;
+	private String description;
 	
 	// ------------------------------------------- Constructor Method
 	public Account() {
@@ -20,6 +21,10 @@ public abstract class Account {
 	
 	public void setAccountNumber(int accNumb) {
 		accountNumber = accNumb;
+	}
+	
+	public void setAccountDescription(String desc) {
+		description = desc;
 	}
 	
 	public int getAccountNumber() {
