@@ -155,6 +155,7 @@ public class createAccount extends JFrame {
 		txtStartingBalance.setText("");
 		txtValidator1.setErrorColor(Color.GRAY);
 		txtValidator2.setErrorColor(Color.GRAY);
+		list.clearSelection();
 	}
 	
 	// --------------------------------------------------------------- Changing Views
