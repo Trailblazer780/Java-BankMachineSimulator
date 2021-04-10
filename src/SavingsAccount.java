@@ -6,4 +6,8 @@ public class SavingsAccount extends Account {
 	public SavingsAccount() {
 		withdrawFee = 0.5;
 	}
+	
+	public void chargeWithdrawFee() {
+		balance = balance - withdrawFee;
+	}
 }
