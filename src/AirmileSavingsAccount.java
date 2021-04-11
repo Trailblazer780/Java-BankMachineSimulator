@@ -19,6 +19,10 @@ public class AirmileSavingsAccount extends Account {
 		airmiles = airmiles + airmilesToAdd;
 	}
 	
+	public double getWithdrawFee() {
+		return withdrawFee;
+	}
+	
 	public int getAirmilesBalance() {
 		return airmiles;
 	}

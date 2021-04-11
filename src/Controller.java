@@ -76,6 +76,7 @@ public class Controller {
 			if (createAcc.checkInput()) {
 				model.createAccount();
 				createAcc.windowDisappear();
+				mainMenu.buttonEnable();
 				mainMenu.windowAppear();
 				createAcc.reset();
 			}
@@ -93,6 +94,16 @@ public class Controller {
 		// ------------------------------------------------ Delete Account Action Listeners
 		
 		deleteAcc.addDeleteButtonListener((ActionEvent e) -> {
+			model.deleteAccount();
+			mainMenu.checkAccountCount();
+			System.out.println(mainMenu.checkAccountCount());
+			if(mainMenu.checkAccountCount() > 0) {
+				mainMenu.buttonEnable();
+			}
+			else if(mainMenu.checkAccountCount() == 0) {
+				mainMenu.buttonDisable();
+			}
+			
 			deleteAcc.windowDisappear();
 			// ------------- Do Stuff -------------
 			mainMenu.windowAppear();
@@ -109,11 +120,10 @@ public class Controller {
 		
 		makeDeposit.addOkButtonListener((ActionEvent e) -> {
 			makeDeposit.depositMoney();
-			//makeDeposit.getTransactionDescription();
-			//model.addTransactionToHistory();
 			if (makeDeposit.checkInput()) {
 				makeDeposit.windowDisappear();
 				mainMenu.windowAppear();
+				makeDeposit.reset();
 			}
 			// ------------- Do Stuff -------------
 			
@@ -123,17 +133,23 @@ public class Controller {
 		makeDeposit.addCancelButtonListener((ActionEvent e) -> {
 			makeDeposit.windowDisappear();
 			mainMenu.windowAppear();
+			makeDeposit.reset();
 			System.out.println("clicked - Deposit Menu - Cancel Button");
 			
 		});
 		
-		// ------------------------------------------------ Withdrawl Account Action Listeners
+		// ------------------------------------------------ Withdraw Account Action Listeners
 		
 		withdrawlAcc.addOkButtonListener((ActionEvent e) -> {
 			withdrawlAcc.withdrawMoney();
-			if(withdrawlAcc.checkInput()) {
+			if(withdrawlAcc.checkInput() && model.enoughFunds() == true) {
 				withdrawlAcc.windowDisappear();
 				mainMenu.windowAppear();
+				withdrawlAcc.reset();
+			}
+			
+			if(withdrawlAcc.checkInput() && model.enoughFunds() == false) {
+				withdrawlAcc.insufficientFunds();
 			}
 			System.out.println("clicked - Withdrawl Menu - Ok Button");
 		});
@@ -141,6 +157,7 @@ public class Controller {
 		withdrawlAcc.addCancelButtonListener((ActionEvent e) -> {
 			withdrawlAcc.windowDisappear();
 			mainMenu.windowAppear();
+			withdrawlAcc.reset();
 			System.out.println("clicked - Withdrawl Menu - Cancel Button");
 		});
 		

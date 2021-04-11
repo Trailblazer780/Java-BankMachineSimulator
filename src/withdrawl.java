@@ -16,6 +16,7 @@ public class withdrawl extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtWithdrawAmount;
 	private JTextField txtTransactionDesc;
+	private JLabel lblInsufficientFunds;
 	private TextFieldValidator txtValidator1;
 	private TextFieldValidator txtValidator2;
 	private Model model;
@@ -38,23 +39,23 @@ public class withdrawl extends JFrame {
 		contentPane.add(lblApplicationTitle);
 		
 		JLabel lblWithdrawAmount = new JLabel("Enter Amount to withdraw: $");
-		lblWithdrawAmount.setBounds(10, 45, 146, 14);
+		lblWithdrawAmount.setBounds(10, 45, 181, 14);
 		contentPane.add(lblWithdrawAmount);
 		
 		txtWithdrawAmount = new JTextField();
-		txtWithdrawAmount.setBounds(160, 45, 95, 20);
+		txtWithdrawAmount.setBounds(197, 42, 95, 20);
 		txtValidator1 = new TextFieldValidator(txtWithdrawAmount);
 		txtValidator1.setRegExp("^(([1-9]\\d{0,2}(,\\d{3})*)|(([1-9]\\d*)?\\d))(\\.\\d\\d)?$");
 		contentPane.add(txtWithdrawAmount);
 		txtWithdrawAmount.setColumns(10);
 		
 		JLabel lblTransactionDesc = new JLabel("Transaction Description:");
-		lblTransactionDesc.setBounds(22, 82, 121, 14);
+		lblTransactionDesc.setBounds(22, 82, 152, 14);
 		contentPane.add(lblTransactionDesc);
 		
 		txtTransactionDesc = new JTextField();
 		txtTransactionDesc.setColumns(10);
-		txtTransactionDesc.setBounds(160, 79, 267, 20);
+		txtTransactionDesc.setBounds(196, 79, 267, 20);
 		txtValidator2 = new TextFieldValidator(txtTransactionDesc);
 		txtValidator2.setRegExp("^[A-Za-z]{1,50}$");
 		contentPane.add(txtTransactionDesc);
@@ -66,6 +67,11 @@ public class withdrawl extends JFrame {
 		btnCancelWithdrawl = new JButton("Cancel");
 		btnCancelWithdrawl.setBounds(259, 123, 89, 23);
 		contentPane.add(btnCancelWithdrawl);
+		
+		lblInsufficientFunds = new JLabel("");
+		lblInsufficientFunds.setForeground(Color.RED);
+		lblInsufficientFunds.setBounds(302, 45, 161, 14);
+		contentPane.add(lblInsufficientFunds);
 		
 		model = myModel;
 	}
@@ -81,6 +87,7 @@ public class withdrawl extends JFrame {
 	}
 	
 	public void withdrawMoney() {
+		lblInsufficientFunds.setText("");
 		String description = "";
 		if(txtValidator1.check() && txtValidator2.check()) {
 			txtValidator1.setErrorColor(Color.GRAY);
@@ -108,6 +115,10 @@ public class withdrawl extends JFrame {
 			
 	}
 	
+	public void insufficientFunds() {
+		txtValidator1.setErrorColor(new Color(255,0,0));
+		lblInsufficientFunds.setText("Insufficient Funds");
+	}
 	
 	public Boolean checkInput() {
 		if(txtValidator1.check() && txtValidator2.check()) {
@@ -118,6 +129,14 @@ public class withdrawl extends JFrame {
 		}
 		
 		return inputValid;
+	}
+	
+	public void reset() {
+		txtValidator1.setErrorColor(Color.GRAY);
+		txtValidator2.setErrorColor(Color.GRAY);
+		txtWithdrawAmount.setText("");
+		txtTransactionDesc.setText("");
+		lblInsufficientFunds.setText("");
 	}
 
 	// --------------------------------------------------------------- Changing Views

@@ -68,7 +68,7 @@ public class viewAccount extends JFrame {
 	}
 	
 	public void reset() {
-		//txtTransactions.setText("");
+		txtTransactions.setText("");
 	}
 	
 

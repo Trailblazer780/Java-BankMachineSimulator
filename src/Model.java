@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JTextArea;
 
@@ -16,9 +17,27 @@ public class Model {
 	private int newAccountNumber;
 	private String accountDescription;
 	private double initialDeposit;
+	private boolean enoughAvailable;
+	private int accountsCreated;
 	
 	public Model() {
 		createAccountIndex = 0;
+		accountsCreated = 0;
+		setAccountCount();
+		//enoughAvailable;
+	}
+	
+	// ------------------------------------------------------- Button Disabler
+//	public void disableButtons(JButton disable) {
+//			disable.setEnabled(false);
+//	}
+	
+	public void setAccountCount() {
+		accountsCreated = accounts.size(); 
+	}
+	
+	public int getAccountCount() {
+		return accountsCreated; 
 	}
 	
 	// ------------------------------------------------------- Creating Accounts
@@ -139,17 +158,32 @@ public class Model {
 		double currentBalance = currentSelectedAccount.getBalance();
 		double toWithdrawConvert = Double.parseDouble(toWithdraw);
 		
-		String transactionDescription = description;
-		String transactionDetails = "";
-		String date = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy").format(new Date());
-		String dateNoDot = date.replace(".", ""); 
-		transactionDetails = dateNoDot+": $-" + toWithdrawConvert + " ["+transactionDescription+"]";
-		currentSelectedAccount.addTransactionToHistory(transactionDetails);
-		currentSelectedAccount.setBalance(currentBalance - toWithdrawConvert);
+		if((currentBalance - toWithdrawConvert - currentSelectedAccount.getWithdrawFee()) >= 0 ) {
+			enoughAvailable = true;
+			String transactionDescription = description;
+			String transactionDetails = "";
+			String date = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy").format(new Date());
+			String dateNoDot = date.replace(".", ""); 
+			transactionDetails = dateNoDot+": $-" + toWithdrawConvert + " ["+transactionDescription+"]";
+			currentSelectedAccount.addTransactionToHistory(transactionDetails);
+			currentSelectedAccount.setBalance(currentBalance - toWithdrawConvert - currentSelectedAccount.getWithdrawFee());
+		}
+		else{
+			enoughAvailable = false;
+		}
 		
 	}
 	
+	public boolean enoughFunds() {
+		return enoughAvailable;
+	}
 	
+	// ------------------------------------------------------- Delete Accounts
+	
+	public void deleteAccount() {
+		accounts.remove(currentSelectedAccount);
+		setAccountCount();
+	}
 	
 	
 	

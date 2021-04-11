@@ -9,6 +9,10 @@ public class SavingsAccount extends Account {
 		accountType = "Savings Account";
 	}
 	
+	public double getWithdrawFee() {
+		return withdrawFee;
+	}
+	
 	public String getAccountType() {
 		return accountType;
 	}
@@ -17,6 +21,7 @@ public class SavingsAccount extends Account {
 	public int getAirmilesBalance() {
 		return 0;
 	}
+	
 
 	@Override
 	public void setAirmilesBalance(int miles) {

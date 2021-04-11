@@ -23,6 +23,8 @@ public class mainMenu extends JFrame {
 	private JButton btnView;
 	private JButton btnWithdrawl;
 	
+	private int disabler;
+	
 	
 	public mainMenu(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,6 +71,11 @@ public class mainMenu extends JFrame {
 		contentPane.add(lblApplicationTitle);
 		
 		model = myModel;
+		disabler = model.getAccountCount();
+		if(disabler == 0) {
+			buttonDisable();
+		}
+		
 	}
 	
 	// --------------------------------------------------------------- Public Methods
@@ -101,7 +108,28 @@ public class mainMenu extends JFrame {
 		btnWithdrawl.addActionListener(withdrawlButton);
 	}
 	
+	public void buttonDisable() {
+		btnSelectAccount.setEnabled(false);
+		btnDeposit.setEnabled(false);
+		btnWithdrawl.setEnabled(false);
+		btnDelete.setEnabled(false);
+		btnView.setEnabled(false);
+	}
 	
+	public void buttonEnable() {
+		btnSelectAccount.setEnabled(true);
+		btnDeposit.setEnabled(true);
+		btnWithdrawl.setEnabled(true);
+		btnDelete.setEnabled(true);
+		btnView.setEnabled(true);
+		
+	}
+	
+
+	public int checkAccountCount() {
+		disabler = model.getAccountCount();
+		return disabler;
+	}
 	
 	// --------------------------------------------------------------- Changing Views
 	

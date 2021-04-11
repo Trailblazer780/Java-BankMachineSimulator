@@ -59,12 +59,8 @@ public abstract class Account {
 		return transactions;
 	}
 	
-	
 	// -------------------------------------------- Public Methods
 	
-	public void subtractBalance(double withdrawAmount) {
-		balance = balance - withdrawAmount;
-	}
 	
 	public void chargeWithdrawFee(double fee) {
 		balance = balance - fee;
@@ -73,7 +69,7 @@ public abstract class Account {
 	public void addTransactionToHistory(String historyToAdd) {
 		transactions.add(historyToAdd);
 	}
-	
+	public abstract double getWithdrawFee();
 	public abstract int getAirmilesBalance();
 	public abstract void setAirmilesBalance(int miles);
 	

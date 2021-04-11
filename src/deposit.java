@@ -121,6 +121,13 @@ public class deposit extends JFrame {
 		return inputValid;
 	}
 	
+	public void reset() {
+		txtValidator1.setErrorColor(Color.GRAY);
+		txtValidator2.setErrorColor(Color.GRAY);
+		txtDepositAmount.setText("");
+		txtDepositDesc.setText("");
+	}
+	
 	// --------------------------------------------------------------- Changing Views
 	
 	public void depositAccountVisible() {
