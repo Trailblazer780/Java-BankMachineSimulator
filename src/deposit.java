@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionListener;
 
@@ -14,6 +15,9 @@ public class deposit extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtDepositAmount;
 	private JTextField txtDepositDesc;
+	private TextFieldValidator txtValidator1;
+	private TextFieldValidator txtValidator2;
+	private Boolean inputValid = false;
 	private Model model;
 	
 	// Button Variables
@@ -34,12 +38,12 @@ public class deposit extends JFrame {
 		contentPane.add(lblApplicationTitle);
 		
 		JLabel lblDepositAmount = new JLabel("Enter Amount to deposit: $");
-		lblDepositAmount.setBounds(10, 45, 146, 14);
+		lblDepositAmount.setBounds(10, 45, 171, 14);
 		contentPane.add(lblDepositAmount);
 		
 		
 		JLabel lblTransactionDesc = new JLabel("Transaction Description:");
-		lblTransactionDesc.setBounds(22, 82, 121, 14);
+		lblTransactionDesc.setBounds(22, 82, 169, 14);
 		contentPane.add(lblTransactionDesc);
 		
 		btnOkDeposit = new JButton("Ok");
@@ -51,13 +55,17 @@ public class deposit extends JFrame {
 		contentPane.add(btnCancelDeposit);
 		
 		txtDepositAmount = new JTextField();
-		txtDepositAmount.setBounds(149, 42, 100, 20);
+		txtDepositAmount.setBounds(191, 42, 100, 20);
 		contentPane.add(txtDepositAmount);
+		txtValidator1 = new TextFieldValidator(txtDepositAmount);
+		txtValidator1.setRegExp("^(([1-9]\\d{0,2}(,\\d{3})*)|(([1-9]\\d*)?\\d))(\\.\\d\\d)?$");
 		txtDepositAmount.setColumns(10);
 		
 		txtDepositDesc = new JTextField();
-		txtDepositDesc.setBounds(147, 79, 304, 20);
+		txtDepositDesc.setBounds(189, 79, 304, 20);
 		contentPane.add(txtDepositDesc);
+		txtValidator2 = new TextFieldValidator(txtDepositDesc);
+		txtValidator2.setRegExp("^[A-Za-z]{1,50}$");
 		txtDepositDesc.setColumns(10);
 		
 		model = myModel;
@@ -73,6 +81,45 @@ public class deposit extends JFrame {
 		btnCancelDeposit.addActionListener(cancelButton);
 	}
 	
+	public void depositMoney() {
+		String description = "";
+		if(txtValidator1.check() && txtValidator2.check()) {
+			txtValidator1.setErrorColor(Color.GRAY);
+			txtValidator2.setErrorColor(Color.GRAY);
+			String newDeposit = "";
+			newDeposit = txtDepositAmount.getText();
+			description = txtDepositDesc.getText();
+			model.deposit(newDeposit, description);
+		}
+		else if(txtValidator1.check() == false && txtValidator2.check() == false){
+			txtValidator1.setErrorColor(new Color(255,0,0));
+			txtValidator2.setErrorColor(new Color(255,0,0));
+			System.out.println("error");
+		}
+		
+		else if(txtValidator1.check() && txtValidator2.check() == false) {
+			txtValidator2.setErrorColor(new Color(255,0,0));
+			System.out.println("error");
+		}
+		
+		else if(txtValidator1.check() == false && txtValidator2.check()) {
+			txtValidator1.setErrorColor(new Color(255,0,0));
+			System.out.println("error");
+		}
+			
+	}
+	
+	
+	public Boolean checkInput() {
+		if(txtValidator1.check() && txtValidator2.check()) {
+			inputValid = true;
+		}
+		else {
+			inputValid = false;
+		}
+		
+		return inputValid;
+	}
 	
 	// --------------------------------------------------------------- Changing Views
 	

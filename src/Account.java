@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public abstract class Account {
 	
@@ -5,6 +6,8 @@ public abstract class Account {
 	private int accountNumber;
 	private String description;
 	private String accountType;
+	private String transactionDescription;
+	ArrayList<String> transactions = new ArrayList<String>();
 	
 	// ------------------------------------------- Constructor Method
 	public Account() {
@@ -40,18 +43,35 @@ public abstract class Account {
 		return accountType;
 	}
 	
+	public void setBalance(double newBalance) {
+		balance = newBalance;
+	}
+	
+	public void setTransactionDescription(String desc) {
+		transactionDescription = desc;
+	}
+	
+	public String getTransactionDescription() {
+		return transactionDescription;
+	}
+	
+	public ArrayList<String> getTransactions() {
+		return transactions;
+	}
+	
+	
 	// -------------------------------------------- Public Methods
 	
 	public void subtractBalance(double withdrawAmount) {
 		balance = balance - withdrawAmount;
 	}
 	
-	public void addBalance(double depositAmount) {
-		balance = balance + depositAmount;
-	}
-	
 	public void chargeWithdrawFee(double fee) {
 		balance = balance - fee;
+	}
+	
+	public void addTransactionToHistory(String historyToAdd) {
+		transactions.add(historyToAdd);
 	}
 	
 	public abstract int getAirmilesBalance();

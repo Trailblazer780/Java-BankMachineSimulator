@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +16,10 @@ public class withdrawl extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtWithdrawAmount;
 	private JTextField txtTransactionDesc;
+	private TextFieldValidator txtValidator1;
+	private TextFieldValidator txtValidator2;
 	private Model model;
+	private Boolean inputValid = false;
 	
 	// Button Variables
 	private JButton btnOkWithdrawl;
@@ -39,6 +43,8 @@ public class withdrawl extends JFrame {
 		
 		txtWithdrawAmount = new JTextField();
 		txtWithdrawAmount.setBounds(160, 45, 95, 20);
+		txtValidator1 = new TextFieldValidator(txtWithdrawAmount);
+		txtValidator1.setRegExp("^(([1-9]\\d{0,2}(,\\d{3})*)|(([1-9]\\d*)?\\d))(\\.\\d\\d)?$");
 		contentPane.add(txtWithdrawAmount);
 		txtWithdrawAmount.setColumns(10);
 		
@@ -49,6 +55,8 @@ public class withdrawl extends JFrame {
 		txtTransactionDesc = new JTextField();
 		txtTransactionDesc.setColumns(10);
 		txtTransactionDesc.setBounds(160, 79, 267, 20);
+		txtValidator2 = new TextFieldValidator(txtTransactionDesc);
+		txtValidator2.setRegExp("^[A-Za-z]{1,50}$");
 		contentPane.add(txtTransactionDesc);
 		
 		btnOkWithdrawl = new JButton("Ok");
@@ -72,6 +80,45 @@ public class withdrawl extends JFrame {
 		btnCancelWithdrawl.addActionListener(cancelButton);
 	}
 	
+	public void withdrawMoney() {
+		String description = "";
+		if(txtValidator1.check() && txtValidator2.check()) {
+			txtValidator1.setErrorColor(Color.GRAY);
+			txtValidator2.setErrorColor(Color.GRAY);
+			String newWithdraw = "";
+			newWithdraw = txtWithdrawAmount.getText();
+			description = txtTransactionDesc.getText();
+			model.withdraw(newWithdraw, description);
+		}
+		else if(txtValidator1.check() == false && txtValidator2.check() == false){
+			txtValidator1.setErrorColor(new Color(255,0,0));
+			txtValidator2.setErrorColor(new Color(255,0,0));
+			System.out.println("error");
+		}
+		
+		else if(txtValidator1.check() && txtValidator2.check() == false) {
+			txtValidator2.setErrorColor(new Color(255,0,0));
+			System.out.println("error");
+		}
+		
+		else if(txtValidator1.check() == false && txtValidator2.check()) {
+			txtValidator1.setErrorColor(new Color(255,0,0));
+			System.out.println("error");
+		}
+			
+	}
+	
+	
+	public Boolean checkInput() {
+		if(txtValidator1.check() && txtValidator2.check()) {
+			inputValid = true;
+		}
+		else {
+			inputValid = false;
+		}
+		
+		return inputValid;
+	}
 
 	// --------------------------------------------------------------- Changing Views
 	

@@ -63,6 +63,10 @@ public class viewAccount extends JFrame {
 		model.generateTransactions(txtTransactions);
 	}
 	
+	public void addTransactionsHistroy(String transaction) {
+		txtTransactions.append(transaction);
+	}
+	
 	public void reset() {
 		//txtTransactions.setText("");
 	}

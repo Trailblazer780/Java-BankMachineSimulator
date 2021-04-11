@@ -41,12 +41,12 @@ public class selectAccount extends JFrame {
 		contentPane.add(lblApplicationTitle);
 		
 		JLabel lblSelectAccount = new JLabel("Select Account:");
-		lblSelectAccount.setBounds(10, 38, 80, 14);
+		lblSelectAccount.setBounds(10, 38, 109, 14);
 		contentPane.add(lblSelectAccount);
 		
 		list = new JList(listModel);
 		list.setBorder(new LineBorder(new Color(0, 0, 0)));
-		list.setBounds(93, 37, 151, 155);
+		list.setBounds(141, 36, 151, 155);
 		contentPane.add(list);
 		
 		btnOkSelectAcc = new JButton("Ok");
@@ -80,7 +80,6 @@ public class selectAccount extends JFrame {
 	
 	public void getAccountIndex() {
 		int index = list.getSelectedIndex();
-		System.out.println(index);
 		model.selectAccount(index);
 	}
 	

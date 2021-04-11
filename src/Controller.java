@@ -108,10 +108,15 @@ public class Controller {
 		// ------------------------------------------------ Deposit Account Action Listeners
 		
 		makeDeposit.addOkButtonListener((ActionEvent e) -> {
-			makeDeposit.windowDisappear();
+			makeDeposit.depositMoney();
+			//makeDeposit.getTransactionDescription();
+			//model.addTransactionToHistory();
+			if (makeDeposit.checkInput()) {
+				makeDeposit.windowDisappear();
+				mainMenu.windowAppear();
+			}
 			// ------------- Do Stuff -------------
 			
-			mainMenu.windowAppear();
 			System.out.println("clicked - Deposit Menu - Ok Button");
 		});
 		
@@ -125,10 +130,11 @@ public class Controller {
 		// ------------------------------------------------ Withdrawl Account Action Listeners
 		
 		withdrawlAcc.addOkButtonListener((ActionEvent e) -> {
-			withdrawlAcc.windowDisappear();
-			// ------------- Do Stuff -------------
-			
-			mainMenu.windowAppear();
+			withdrawlAcc.withdrawMoney();
+			if(withdrawlAcc.checkInput()) {
+				withdrawlAcc.windowDisappear();
+				mainMenu.windowAppear();
+			}
 			System.out.println("clicked - Withdrawl Menu - Ok Button");
 		});
 		
