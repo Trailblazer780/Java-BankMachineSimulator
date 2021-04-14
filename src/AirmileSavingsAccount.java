@@ -34,6 +34,11 @@ public class AirmileSavingsAccount extends Account {
 	public void setAirmilesBalance(int miles) {
 		airmiles = miles;
 	}
+	
+	public void addAirMiles(int newMiles) {
+		airmiles = airmiles + newMiles;
+	}
+
 
 
 }

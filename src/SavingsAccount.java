@@ -28,4 +28,9 @@ public class SavingsAccount extends Account {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void addAirMiles(int newMiles) {
+		
+	}
 }

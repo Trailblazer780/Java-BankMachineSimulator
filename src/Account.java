@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public abstract class Account {
+public abstract class Account implements java.io.Serializable {
 	
 	protected double balance;
 	private int accountNumber;
@@ -69,9 +69,11 @@ public abstract class Account {
 	public void addTransactionToHistory(String historyToAdd) {
 		transactions.add(historyToAdd);
 	}
+	
 	public abstract double getWithdrawFee();
 	public abstract int getAirmilesBalance();
 	public abstract void setAirmilesBalance(int miles);
+	public abstract void addAirMiles(int newMiles);
 	
 	
 	

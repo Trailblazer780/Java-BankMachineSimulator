@@ -12,7 +12,7 @@ public class Model {
 	
 	
 	private Account currentSelectedAccount;
-	ArrayList<Account> accounts = new ArrayList<Account>();
+	static ArrayList<Account> accounts = new ArrayList<Account>();
 	private int createAccountIndex;
 	private int newAccountNumber;
 	private String accountDescription;
@@ -80,7 +80,7 @@ public class Model {
 	
 	public void getNewAccountNumber() {
 		newAccountNumber = accounts.size() + 1;
-		System.out.println(newAccountNumber);
+		//System.out.println(newAccountNumber);
 	}
 	
 	// ------------------------------------------------------- Selecting accounts
@@ -137,7 +137,9 @@ public class Model {
 	public void deposit(String toDeposit, String description) {
 		double currentBalance = currentSelectedAccount.getBalance();
 		double toDepositConvert = Double.parseDouble(toDeposit);
-		
+	
+		airmilesCalculate(toDepositConvert);
+		System.out.println(airmilesCalculate(toDepositConvert));
 		String transactionDescription = description;
 		String transactionDetails = "";
 		String date = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy").format(new Date());
@@ -145,7 +147,24 @@ public class Model {
 		transactionDetails = dateNoDot+": $" + toDepositConvert + " ["+transactionDescription+"]";
 		currentSelectedAccount.addTransactionToHistory(transactionDetails);
 		currentSelectedAccount.setBalance(currentBalance + toDepositConvert);
+		if(currentSelectedAccount.getAccountType() == "Airmile Savings Account") {
+			currentSelectedAccount.addAirMiles(airmilesCalculate(toDepositConvert));
+		}
 		
+	}
+	
+	public int airmilesCalculate(double deposit) {
+		int result = 0;
+		int checker = 0;
+		while(checker < deposit) {
+			if (checker <= deposit) {
+				checker = checker + 30;
+				if(checker <= deposit) {
+					result++;
+				}
+			}
+		}
+		return result;
 	}
 	
 	public void getNewTransactionDescription(String description) {
@@ -184,12 +203,6 @@ public class Model {
 		accounts.remove(currentSelectedAccount);
 		setAccountCount();
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	

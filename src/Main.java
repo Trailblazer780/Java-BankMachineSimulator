@@ -11,7 +11,6 @@ public class Main {
 		viewAccount viewAcc = new viewAccount(model);
 		withdrawl withdrawlAcc = new withdrawl(model);
 		Controller controller = new Controller(model, menuMain, createAcc, deleteAcc, makeDeposit, selectAcc, viewAcc, withdrawlAcc);
-		
 		menuMain.setVisible(true);
 	}
 
