@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 public class deposit extends JFrame {
-
+	// variables
 	private JPanel contentPane;
 	private JTextField txtDepositAmount;
 	private JTextField txtDepositDesc;
@@ -24,7 +24,7 @@ public class deposit extends JFrame {
 	private JButton btnOkDeposit;
 	private JButton btnCancelDeposit;
 
-
+	// constructor method
 	public deposit(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 340);
@@ -72,36 +72,40 @@ public class deposit extends JFrame {
 	}
 	
 	// --------------------------------------------------------------- Public Methods
-	
+	// add action listener to button
 	public void addOkButtonListener(ActionListener okButton) {
 		btnOkDeposit.addActionListener(okButton);
 	}
-	
+	// add action listener to button
 	public void addCancelButtonListener(ActionListener cancelButton) {
 		btnCancelDeposit.addActionListener(cancelButton);
 	}
-	
+	// deposit money 
 	public void depositMoney() {
 		String description = "";
+		// if input passes
 		if(txtValidator1.check() && txtValidator2.check()) {
 			txtValidator1.setErrorColor(Color.GRAY);
 			txtValidator2.setErrorColor(Color.GRAY);
 			String newDeposit = "";
+			// get the deposit amount
 			newDeposit = txtDepositAmount.getText();
+			// get the description of the deposit
 			description = txtDepositDesc.getText();
 			model.deposit(newDeposit, description);
 		}
+		// check input
 		else if(txtValidator1.check() == false && txtValidator2.check() == false){
 			txtValidator1.setErrorColor(new Color(255,0,0));
 			txtValidator2.setErrorColor(new Color(255,0,0));
 			System.out.println("error");
 		}
-		
+		// check input
 		else if(txtValidator1.check() && txtValidator2.check() == false) {
 			txtValidator2.setErrorColor(new Color(255,0,0));
 			System.out.println("error");
 		}
-		
+		// check input
 		else if(txtValidator1.check() == false && txtValidator2.check()) {
 			txtValidator1.setErrorColor(new Color(255,0,0));
 			System.out.println("error");
@@ -109,7 +113,7 @@ public class deposit extends JFrame {
 			
 	}
 	
-	
+	// check all of the input
 	public Boolean checkInput() {
 		if(txtValidator1.check() && txtValidator2.check()) {
 			inputValid = true;
@@ -120,7 +124,7 @@ public class deposit extends JFrame {
 		
 		return inputValid;
 	}
-	
+	// reset method to clear all input fields
 	public void reset() {
 		txtValidator1.setErrorColor(Color.GRAY);
 		txtValidator2.setErrorColor(Color.GRAY);
@@ -129,11 +133,11 @@ public class deposit extends JFrame {
 	}
 	
 	// --------------------------------------------------------------- Changing Views
-	
+	// make this window visible
 	public void depositAccountVisible() {
 		this.setVisible(true);
 	}
-	
+	// make this window disappear
 	public void windowDisappear() {
 		this.setVisible(false);
 	}

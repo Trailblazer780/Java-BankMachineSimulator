@@ -12,7 +12,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 
 public class withdrawl extends JFrame {
-
+	// variables
 	private JPanel contentPane;
 	private JTextField txtWithdrawAmount;
 	private JTextField txtTransactionDesc;
@@ -25,7 +25,8 @@ public class withdrawl extends JFrame {
 	// Button Variables
 	private JButton btnOkWithdrawl;
 	private JButton btnCancelWithdrawl;
-
+	
+	// constructor method
 	public withdrawl(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 340);
@@ -77,49 +78,54 @@ public class withdrawl extends JFrame {
 	}
 	
 	// --------------------------------------------------------------- Public Methods
-	
+	// add action listener to button
 	public void addOkButtonListener(ActionListener okButton) {
 		btnOkWithdrawl.addActionListener(okButton);
 	}
-	
+	// add action listener to button
 	public void addCancelButtonListener(ActionListener cancelButton) {
 		btnCancelWithdrawl.addActionListener(cancelButton);
 	}
-	
+	// withdraw money method
 	public void withdrawMoney() {
+		// initialize things
 		lblInsufficientFunds.setText("");
 		String description = "";
+		// check input
 		if(txtValidator1.check() && txtValidator2.check()) {
 			txtValidator1.setErrorColor(Color.GRAY);
 			txtValidator2.setErrorColor(Color.GRAY);
 			String newWithdraw = "";
+			// get the information from withdraw
 			newWithdraw = txtWithdrawAmount.getText();
 			description = txtTransactionDesc.getText();
+			// hand information over to model to do calculations
 			model.withdraw(newWithdraw, description);
 		}
+		// checking input
 		else if(txtValidator1.check() == false && txtValidator2.check() == false){
 			txtValidator1.setErrorColor(new Color(255,0,0));
 			txtValidator2.setErrorColor(new Color(255,0,0));
 			System.out.println("error");
 		}
-		
+		// checking input
 		else if(txtValidator1.check() && txtValidator2.check() == false) {
 			txtValidator2.setErrorColor(new Color(255,0,0));
 			System.out.println("error");
 		}
-		
+		// checking input
 		else if(txtValidator1.check() == false && txtValidator2.check()) {
 			txtValidator1.setErrorColor(new Color(255,0,0));
 			System.out.println("error");
 		}
 			
 	}
-	
+	// make view show that there are insufficient funds for the withdraw
 	public void insufficientFunds() {
 		txtValidator1.setErrorColor(new Color(255,0,0));
 		lblInsufficientFunds.setText("Insufficient Funds");
 	}
-	
+	// checking the input with textfieldvalidator
 	public Boolean checkInput() {
 		if(txtValidator1.check() && txtValidator2.check()) {
 			inputValid = true;
@@ -130,7 +136,7 @@ public class withdrawl extends JFrame {
 		
 		return inputValid;
 	}
-	
+	// reset method to clear all input from previous uses 
 	public void reset() {
 		txtValidator1.setErrorColor(Color.GRAY);
 		txtValidator2.setErrorColor(Color.GRAY);
@@ -140,11 +146,11 @@ public class withdrawl extends JFrame {
 	}
 
 	// --------------------------------------------------------------- Changing Views
-	
+	// make this window visible
 	public void withdrawlAccountVisible() {
 		this.setVisible(true);
 	}
-	
+	// make this window disappear
 	public void windowDisappear() {
 		this.setVisible(false);
 	}

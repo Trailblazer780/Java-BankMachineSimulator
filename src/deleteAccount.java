@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 public class deleteAccount extends JFrame {
-
+	// variables
 	private JPanel contentPane;
 	private Model model;
 	
@@ -18,7 +18,7 @@ public class deleteAccount extends JFrame {
 	private JButton btnDelete;
 	private JButton btnDeleteCancel;
 	
-	
+	// constructor method
 	public deleteAccount(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 340);
@@ -51,22 +51,22 @@ public class deleteAccount extends JFrame {
 	}
 	
 	// ---------------------------------------------------- Public Methods
-	
+	// add action listener to button
 	public void addDeleteButtonListener(ActionListener deleteButton) {
 		btnDelete.addActionListener(deleteButton);
 	}
-	
+	// add action listener to button
 	public void addCanelButtonListener(ActionListener cancelButton) {
 		btnDeleteCancel.addActionListener(cancelButton);
 	}
 	
 	
 	// --------------------------------------------------------------- Changing Views
-	
+	// make this window visible
 	public void deleteAccountVisible() {
 		this.setVisible(true);
 	}
-	
+	// make this window disappear
 	public void windowDisappear() {
 		this.setVisible(false);
 	}

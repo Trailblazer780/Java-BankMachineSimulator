@@ -13,14 +13,14 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.JTextArea;
 
 public class viewAccount extends JFrame {
-
+	// variables
 	private JPanel contentPane;
 	private Model model;
 	private JTextArea txtTransactions;
 	// Button Variables
 	private JButton btnOkViewAccount;
 	
-	
+	// constructor method 
 	public viewAccount(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 340);
@@ -54,30 +54,30 @@ public class viewAccount extends JFrame {
 	}
 	
 	// ---------------------------------------------------- Public Methods
-	
+	// add action listener to button
 	public void addOkButtonListener(ActionListener okButton) {
 		btnOkViewAccount.addActionListener(okButton);
 	}
-	
+	// populate the transactions
 	public void populateTransactions() {
 		model.generateTransactions(txtTransactions);
 	}
-	
+	// add transaction history
 	public void addTransactionsHistroy(String transaction) {
 		txtTransactions.append(transaction);
 	}
-	
+	// reset method to clear everything
 	public void reset() {
 		txtTransactions.setText("");
 	}
 	
 
 	// --------------------------------------------------------------- Changing Views
-	
+	// make this window visible
 	public void viewAccountVisible() {
 		this.setVisible(true);
 	}
-	
+	// make this window disappear 
 	public void windowDisappear() {
 		this.setVisible(false);
 	}

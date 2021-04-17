@@ -16,7 +16,7 @@ import java.awt.Color;
 import javax.swing.JTextField;
 
 public class createAccount extends JFrame {
-
+	// variables
 	private JPanel contentPane;
 	private JTextField txtAccountDescription;
 	private JTextField txtStartingBalance;
@@ -34,6 +34,7 @@ public class createAccount extends JFrame {
 	private JList<String> list;
 	private DefaultListModel<String> listModel = new DefaultListModel();
 	
+	// constructor method
 	public createAccount(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 340);
@@ -98,15 +99,15 @@ public class createAccount extends JFrame {
 	
 	
 	// --------------------------------------------------------------- Public Methods
-	
+	// add action listener to button
 	public void addOkButtonListener(ActionListener okButton) {
 		btnOkCreate.addActionListener(okButton);
 	}
-	
+	// add action listener to button
 	public void addCanelButtonListener(ActionListener cancelButton) {
 		btnCancelCreate.addActionListener(cancelButton);
 	}
-	
+	// get what type of account was selected
 	public void getSelectedAccountIndex() {
 		 int accountSelected = 0;
 
@@ -119,6 +120,7 @@ public class createAccount extends JFrame {
 			model.getSelectedAccountIndex(accountSelected);
 		}
 		else {
+			// if no account is selected 
 			 if(list.isSelectionEmpty()) {
 				 lblMustSelectAccount.setText("Must Select an Account!");
 			 }
@@ -126,7 +128,7 @@ public class createAccount extends JFrame {
 		
 		//model.getSelectedAccountIndex(accountSelected);
 	}
-	
+	// get the initial deposit when creating account and check the input
 	public void getInitialDeposit() {
 		if(txtValidator1.check()) {
 			txtValidator1.setErrorColor(Color.GRAY);
@@ -139,7 +141,7 @@ public class createAccount extends JFrame {
 			System.out.println("error");
 		}
 	}
-	
+	// get the account description when creating the account and check the input
 	public void getAccountDescription() {
 		String description = "";
 		if(txtValidator2.check()) {
@@ -151,7 +153,7 @@ public class createAccount extends JFrame {
 			txtValidator2.setErrorColor(new Color(255,0,0));
 		}
 	}
-	
+	// check all of the input to see if it is good 
 	public Boolean checkInput() {
 		if(txtValidator1.check() && txtValidator2.check() && !list.isSelectionEmpty()) {
 			inputValid = true;
@@ -162,7 +164,7 @@ public class createAccount extends JFrame {
 		
 		return inputValid;
 	}
-	
+	// reset method to clear input fields 
 	public void reset() {
 		txtAccountDescription.setText("");
 		txtStartingBalance.setText("");
@@ -173,11 +175,11 @@ public class createAccount extends JFrame {
 	}
 	
 	// --------------------------------------------------------------- Changing Views
-	
+	// make this window visible
 	public void createAccountVisible() {
 		this.setVisible(true);
 	}
-	
+	// make this window disappear
 	public void windowDisappear() {
 		this.setVisible(false);
 	}

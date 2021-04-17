@@ -15,19 +15,18 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 
 public class selectAccount extends JFrame {
-
+	// variables
 	private JPanel contentPane;
 	private Model model;
-	
 	private JList<String> list;
 	private DefaultListModel<String> listModel = new DefaultListModel();
 	ArrayList<Account> accountsToSelect = new ArrayList<Account>();
 	
-	
 	// Button Variables
 	private JButton btnOkSelectAcc;
 	private JButton btnCancelSelectAcc;
-
+	
+	// constructor method
 	public selectAccount(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 340);
@@ -61,39 +60,44 @@ public class selectAccount extends JFrame {
 	}
 	
 	// ---------------------------------------------------- Public Methods
-	
+	// add action listener to button
 	public void addOkButtonListener(ActionListener okButton) {
 		btnOkSelectAcc.addActionListener(okButton);
 	}
-	
+	// add action listener to button
 	public void addCancelButtonListener(ActionListener cancelButton) {
 		btnCancelSelectAcc.addActionListener(cancelButton);
 	}
-	
+	// populate the selection list for accounts
 	public void populateSelectionList() {
+		// reset so no duplicates 
 		resetSelectionList();
+		// get the accounts
 		accountsToSelect = model.getAccounts();
+		// loop through and add accounts to the list
 		for (int i=0; i<accountsToSelect.size(); i++) {
 			listModel.addElement(accountsToSelect.get(i).getAccountDescription());
 		}
 	}
-	
+	// get the index of the account on the accounts ArrayList
 	public void getAccountIndex() {
+		// set index variable
 		int index = list.getSelectedIndex();
+		// set the selected account to that index
 		model.selectAccount(index);
 	}
-	
+	// reset everything in this window
 	public void resetSelectionList() {
 		listModel.removeAllElements();
 	}
 
 
 	// --------------------------------------------------------------- Changing Views
-	
+	// make this window visible
 	public void selectAccountVisible() {
 		this.setVisible(true);
 	}
-	
+	// make this window disappear
 	public void windowDisappear() {
 		this.setVisible(false);
 	}

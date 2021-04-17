@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 
 public class mainMenu extends JFrame {
-
+	// variables
 	private JPanel contentPane;
 	private Model model;
 	
@@ -22,10 +22,9 @@ public class mainMenu extends JFrame {
 	private JButton btnDeposit;
 	private JButton btnView;
 	private JButton btnWithdrawl;
-	
 	private int disabler;
 	
-	
+	// constructor method
 	public mainMenu(Model myModel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 340);
@@ -79,35 +78,35 @@ public class mainMenu extends JFrame {
 	}
 	
 	// --------------------------------------------------------------- Public Methods
-	
+	// add action listener to button
 	public void addQuitButtonListener(ActionListener quitButton) {
 		btnQuit.addActionListener(quitButton);
 	}
-	
+	// add action listener to button
 	public void addSelectButtonListener(ActionListener selectButton) {
 		btnSelectAccount.addActionListener(selectButton);
 	}
-	
+	// add action listener to button
 	public void addCreateButtonListener(ActionListener createButton) {
 		btnCreate.addActionListener(createButton);
 	}
-	
+	// add action listener to button
 	public void addDeleteButtonListener(ActionListener deleteButton) {
 		btnDelete.addActionListener(deleteButton);
 	}
-	
+	// add action listener to button
 	public void addDepositButtonListener(ActionListener depositButton) {
 		btnDeposit.addActionListener(depositButton);
 	}
-	
+	// add action listener to button
 	public void addViewAccButtonListener(ActionListener viewAccButton) {
 		btnView.addActionListener(viewAccButton);
 	}
-	
+	// add action listener to button
 	public void addWithdrawlButtonListener(ActionListener withdrawlButton) {
 		btnWithdrawl.addActionListener(withdrawlButton);
 	}
-	
+	// disable buttons
 	public void buttonDisable() {
 		btnSelectAccount.setEnabled(false);
 		btnDeposit.setEnabled(false);
@@ -115,7 +114,7 @@ public class mainMenu extends JFrame {
 		btnDelete.setEnabled(false);
 		btnView.setEnabled(false);
 	}
-	
+	// enable buttons
 	public void buttonEnable() {
 		btnSelectAccount.setEnabled(true);
 		btnDeposit.setEnabled(true);
@@ -125,18 +124,18 @@ public class mainMenu extends JFrame {
 		
 	}
 	
-
+	// check how many accounts there are
 	public int checkAccountCount() {
 		disabler = model.getAccountCount();
 		return disabler;
 	}
 	
 	// --------------------------------------------------------------- Changing Views
-	
+	// make this window disappear
 	public void windowDisappear() {
 		this.setVisible(false);
 	}
-	
+	// make this window visible
 	public void windowAppear() {
 		this.setVisible(true);
 	}
