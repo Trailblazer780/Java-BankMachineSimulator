@@ -202,6 +202,12 @@ public class Model {
 	public void deleteAccount() {
 		accounts.remove(currentSelectedAccount);
 		setAccountCount();
+
+		if(accountsCreated > 0) {
+			setSelectedAccount(accounts.get(0));
+		}
+		
+		
 	}
 	
 	

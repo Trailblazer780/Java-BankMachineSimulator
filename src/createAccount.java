@@ -24,6 +24,7 @@ public class createAccount extends JFrame {
 	private TextFieldValidator txtValidator2;
 	private Model model;
 	private Boolean inputValid = false;
+	private JLabel lblMustSelectAccount;
 	
 	// Button Variables
 	private JButton btnOkCreate;
@@ -66,7 +67,7 @@ public class createAccount extends JFrame {
 		contentPane.add(txtAccountDescription);
 		txtAccountDescription.setColumns(10);
 		txtValidator2 = new TextFieldValidator(txtAccountDescription);
-		txtValidator2.setRegExp("^[A-Za-z]{1,50}$");
+		txtValidator2.setRegExp("^[A-Za-z_\\s]{1,50}$");
 		
 		JLabel lblStartingBalance = new JLabel("Starting Balance: $");
 		lblStartingBalance.setBounds(10, 130, 133, 14);
@@ -87,6 +88,11 @@ public class createAccount extends JFrame {
 		btnCancelCreate.setBounds(311, 178, 89, 23);
 		contentPane.add(btnCancelCreate);
 		
+		lblMustSelectAccount = new JLabel("");
+		lblMustSelectAccount.setForeground(Color.RED);
+		lblMustSelectAccount.setBounds(344, 45, 153, 14);
+		contentPane.add(lblMustSelectAccount);
+		
 		model = myModel;
 	}
 	
@@ -106,12 +112,19 @@ public class createAccount extends JFrame {
 
 		if(list.getSelectedIndex() == 0) {
 			accountSelected = 1;
+			model.getSelectedAccountIndex(accountSelected);
 		}
 		else if (list.getSelectedIndex() == 1) {
 			accountSelected = 2;
+			model.getSelectedAccountIndex(accountSelected);
+		}
+		else {
+			 if(list.isSelectionEmpty()) {
+				 lblMustSelectAccount.setText("Must Select an Account!");
+			 }
 		}
 		
-		model.getSelectedAccountIndex(accountSelected);
+		//model.getSelectedAccountIndex(accountSelected);
 	}
 	
 	public void getInitialDeposit() {
@@ -140,7 +153,7 @@ public class createAccount extends JFrame {
 	}
 	
 	public Boolean checkInput() {
-		if(txtValidator1.check() && txtValidator2.check()) {
+		if(txtValidator1.check() && txtValidator2.check() && !list.isSelectionEmpty()) {
 			inputValid = true;
 		}
 		else {
@@ -156,6 +169,7 @@ public class createAccount extends JFrame {
 		txtValidator1.setErrorColor(Color.GRAY);
 		txtValidator2.setErrorColor(Color.GRAY);
 		list.clearSelection();
+		lblMustSelectAccount.setText("");
 	}
 	
 	// --------------------------------------------------------------- Changing Views
@@ -167,5 +181,4 @@ public class createAccount extends JFrame {
 	public void windowDisappear() {
 		this.setVisible(false);
 	}
-	
 }

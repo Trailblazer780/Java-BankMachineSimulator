@@ -65,7 +65,7 @@ public class deposit extends JFrame {
 		txtDepositDesc.setBounds(189, 79, 304, 20);
 		contentPane.add(txtDepositDesc);
 		txtValidator2 = new TextFieldValidator(txtDepositDesc);
-		txtValidator2.setRegExp("^[A-Za-z]{1,50}$");
+		txtValidator2.setRegExp("^[A-Za-z_\\s]{1,50}$");
 		txtDepositDesc.setColumns(10);
 		
 		model = myModel;

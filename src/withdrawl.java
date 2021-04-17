@@ -57,7 +57,7 @@ public class withdrawl extends JFrame {
 		txtTransactionDesc.setColumns(10);
 		txtTransactionDesc.setBounds(196, 79, 267, 20);
 		txtValidator2 = new TextFieldValidator(txtTransactionDesc);
-		txtValidator2.setRegExp("^[A-Za-z]{1,50}$");
+		txtValidator2.setRegExp("^[A-Za-z_\\s]{1,50}$");
 		contentPane.add(txtTransactionDesc);
 		
 		btnOkWithdrawl = new JButton("Ok");
