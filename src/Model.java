@@ -24,13 +24,9 @@ public class Model {
 		createAccountIndex = 0;
 		accountsCreated = 0;
 		setAccountCount();
-		//enoughAvailable;
 	}
 	
 	// ------------------------------------------------------- Button Disabler
-//	public void disableButtons(JButton disable) {
-//			disable.setEnabled(false);
-//	}
 	
 	public void setAccountCount() {
 		accountsCreated = accounts.size(); 
@@ -48,7 +44,6 @@ public class Model {
 	
 	public void getNewAccountDescription(String accountDesc) {
 		accountDescription = accountDesc;
-		//System.out.println(accountDescription);
 	}
 	
 	public void createAccount() {
@@ -80,7 +75,6 @@ public class Model {
 	
 	public void getNewAccountNumber() {
 		newAccountNumber = accounts.size() + 1;
-		//System.out.println(newAccountNumber);
 	}
 	
 	// ------------------------------------------------------- Selecting accounts
@@ -95,8 +89,6 @@ public class Model {
 	
 	public void selectAccount(int index) {
 		currentSelectedAccount = accounts.get(index);
-		//System.out.println(accounts.get(index));
-		//setSelectedAccount(accounts.get(index));
 	}
 	
 	// ------------------------------------------------------- View Account
