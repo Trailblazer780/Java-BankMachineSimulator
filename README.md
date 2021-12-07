@@ -13,25 +13,25 @@ and the account will be removed and all data will be deleted.
 Below is screenshots of the program in use:
 
 ## Program first being run:
-![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example%201.PNG)
+![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example1.PNG)
 
 ## Creating account:
-![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example%202.PNG)
+![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example2.PNG)
 
 ## View account after creation:
-![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example%203.PNG)
+![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example3.PNG)
 
 ## Deposit money:
-![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example%204.PNG)
+![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example4.PNG)
 
 ## Withdrawl money:
-![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example%205.PNG)
+![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example5.PNG)
 
 ## Viewing account transactions:
-![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example%206.PNG)
+![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example6.PNG)
 
 ## Selecting account:
-![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example%207.PNG)
+![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example7.PNG)
 
 ## Deleting account:
-![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example%208.PNG)
+![alt text](https://github.com/Trailblazer780/PROG1400-Project-3/blob/main/Images/Example8.PNG)
